@@ -1,5 +1,6 @@
 package shiyu.firstcode.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -29,6 +30,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 import shiyu.firstcode.coolweather.gson.Forecast;
 import shiyu.firstcode.coolweather.gson.Weather;
+import shiyu.firstcode.coolweather.service.AutoUpdateService;
 import shiyu.firstcode.coolweather.util.HttpUtil;
 import shiyu.firstcode.coolweather.util.Utility;
 
@@ -236,6 +238,7 @@ public class WeatherActivity extends AppCompatActivity {
         mTextView_carWash.setText(carWash);
         mTextView_sport.setText(sport);
         mScrollView_weather.setVisibility(View.VISIBLE);
-
+        Intent intent=new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 }
